@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EduConnect - Sistema de Gestão Educacional</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Loading Explosão -->
+    <div id="loading-explosion" class="loading-container">
+      <div class="explosion-background">
+        <div class="particles-container">
+          <div class="particle particle-1"></div>
+          <div class="particle particle-2"></div>
+          <div class="particle particle-3"></div>
+          <div class="particle particle-4"></div>
+          <div class="particle particle-5"></div>
+          <div class="particle particle-6"></div>
+          <div class="particle particle-7"></div>
+          <div class="particle particle-8"></div>
+          <div class="particle particle-9"></div>
+          <div class="particle particle-10"></div>
+          <div class="particle particle-11"></div>
+          <div class="particle particle-12"></div>
+        </div>
+        <div class="wave wave-1"></div>
+        <div class="wave wave-2"></div>
+        <div class="wave wave-3"></div>
+        <div class="logo-explosion">
+          <div class="logo-icon">
+            <i class="fas fa-graduation-cap"></i>
+          </div>
+          <div class="logo-text">EduConnect</div>
+          <div class="loading-bar-container">
+            <div class="loading-bar"></div>
+          </div>
+          <div class="loading-text">Carregando sistema...</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+      <div class="container">
+        <div class="logo">
+          <i class="fas fa-graduation-cap"></i>
+          <h1>EduConnect</h1>
+        </div>
+        <nav class="nav">
+          <button class="nav-btn active" data-section="dashboard">
+            <i class="fas fa-home"></i> Dashboard
+          </button>
+          <button class="nav-btn" data-section="alunos">
+            <i class="fas fa-user-graduate"></i> Alunos
+          </button>
+          <button class="nav-btn" data-section="professores">
+            <i class="fas fa-chalkboard-teacher"></i> Professores
+          </button>
+          <button class="nav-btn" data-section="cursos">
+            <i class="fas fa-book"></i> Cursos
+          </button>
+          <button class="nav-btn" data-section="turmas">
+            <i class="fas fa-users"></i> Turmas
+          </button>
+          <button class="nav-btn" data-section="relatorios">
+            <i class="fas fa-chart-bar"></i> Relatórios
+          </button>
+        </nav>
+        <div class="user-menu">
+          <span>Admin</span>
+          <i class="fas fa-user-circle"></i>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+      <div class="container">
+        <!-- Dashboard -->
+        <section id="dashboard" class="section active">
+          <div class="section-header">
+            <h2>Dashboard</h2>
+            <p>Visão geral do sistema educacional</p>
+          </div>
+
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-icon" style="background: #3498db">
+                <i class="fas fa-user-graduate"></i>
+              </div>
+              <div class="stat-info">
+                <h3 id="total-alunos">0</h3>
+                <p>Alunos</p>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon" style="background: #e74c3c">
+                <i class="fas fa-chalkboard-teacher"></i>
+              </div>
+              <div class="stat-info">
+                <h3 id="total-professores">0</h3>
+                <p>Professores</p>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon" style="background: #27ae60">
+                <i class="fas fa-book"></i>
+              </div>
+              <div class="stat-info">
+                <h3 id="total-cursos">0</h3>
+                <p>Cursos</p>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon" style="background: #f39c12">
+                <i class="fas fa-users"></i>
+              </div>
+              <div class="stat-info">
+                <h3 id="total-turmas">0</h3>
+                <p>Turmas</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Alunos -->
+        <section id="alunos" class="section">
+          <div class="section-header">
+            <h2>Gerenciar Alunos</h2>
+            <button class="btn-primary" onclick="openModal('aluno')">
+              <i class="fas fa-plus"></i> Novo Aluno
+            </button>
+          </div>
+
+          <div class="table-container">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Matrícula</th>
+                  <th>Nome</th>
+                  <th>Curso</th>
+                  <th>Login</th>
+                  <th>Ações</th>
+                </tr>
+              </thead>
+              <tbody id="alunos-table-body">
+                <!-- Dados carregados via JavaScript -->
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- Professores -->
+        <section id="professores" class="section">
+          <div class="section-header">
+            <h2>Gerenciar Professores</h2>
+            <button class="btn-primary" onclick="openModal('professor')">
+              <i class="fas fa-plus"></i> Novo Professor
+            </button>
+          </div>
+
+          <div class="table-container">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Registro</th>
+                  <th>Nome</th>
+                  <th>Especialidade</th>
+                  <th>Login</th>
+                  <th>Ações</th>
+                </tr>
+              </thead>
+              <tbody id="professores-table-body">
+                <!-- Dados carregados via JavaScript -->
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- Cursos -->
+        <section id="cursos" class="section">
+          <div class="section-header">
+            <h2>Gerenciar Cursos</h2>
+            <button class="btn-primary" onclick="openModal('curso')">
+              <i class="fas fa-plus"></i> Novo Curso
+            </button>
+          </div>
+
+          <div class="cards-grid" id="cursos-grid">
+            <!-- Cards carregados via JavaScript -->
+          </div>
+        </section>
+
+        <!-- Turmas -->
+        <section id="turmas" class="section">
+          <div class="section-header">
+            <h2>Gerenciar Turmas</h2>
+            <button class="btn-primary" onclick="openModal('turma')">
+              <i class="fas fa-plus"></i> Nova Turma
+            </button>
+          </div>
+
+          <div class="cards-grid" id="turmas-grid">
+            <!-- Cards carregados via JavaScript -->
+          </div>
+        </section>
+
+        <!-- Relatórios -->
+        <section id="relatorios" class="section">
+          <div class="section-header">
+            <h2>Relatórios do Sistema</h2>
+          </div>
+
+          <div class="reports-grid">
+            <div class="report-card">
+              <h3>Relatório de Alunos</h3>
+              <div id="relatorio-alunos" class="report-content">
+                <!-- Conteúdo do relatório -->
+              </div>
+            </div>
+            <div class="report-card">
+              <h3>Relatório de Professores</h3>
+              <div id="relatorio-professores" class="report-content">
+                <!-- Conteúdo do relatório -->
+              </div>
+            </div>
+            <div class="report-card">
+              <h3>Relatório de Cursos</h3>
+              <div id="relatorio-cursos" class="report-content">
+                <!-- Conteúdo do relatório -->
+              </div>
+            </div>
+            <div class="report-card">
+              <h3>Relatório de Turmas</h3>
+              <div id="relatorio-turmas" class="report-content">
+                <!-- Conteúdo do relatório -->
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- Modal Aluno -->
+    <div id="modal-aluno" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Cadastrar Aluno</h3>
+          <span class="close" onclick="closeModal('aluno')">&times;</span>
+        </div>
+        <form id="form-aluno" class="modal-form">
+          <div class="form-group">
+            <label for="aluno-nome">Nome:</label>
+            <input type="text" id="aluno-nome" required />
+          </div>
+          <div class="form-group">
+            <label for="aluno-login">Login:</label>
+            <input type="text" id="aluno-login" required />
+          </div>
+          <div class="form-group">
+            <label for="aluno-senha">Senha:</label>
+            <input type="password" id="aluno-senha" required />
+          </div>
+          <div class="form-group">
+            <label for="aluno-matricula">Matrícula:</label>
+            <input type="text" id="aluno-matricula" required />
+          </div>
+          <div class="form-group">
+            <label for="aluno-curso">Curso:</label>
+            <select id="aluno-curso" required>
+              <option value="">Selecione um curso</option>
+            </select>
+          </div>
+          <div class="form-actions">
+            <button
+              type="button"
+              class="btn-secondary"
+              onclick="closeModal('aluno')"
+            >
+              Cancelar
+            </button>
+            <button type="submit" class="btn-primary">Salvar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Modal Professor -->
+    <div id="modal-professor" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Cadastrar Professor</h3>
+          <span class="close" onclick="closeModal('professor')">&times;</span>
+        </div>
+        <form id="form-professor" class="modal-form">
+          <div class="form-group">
+            <label for="professor-nome">Nome:</label>
+            <input type="text" id="professor-nome" required />
+          </div>
+          <div class="form-group">
+            <label for="professor-login">Login:</label>
+            <input type="text" id="professor-login" required />
+          </div>
+          <div class="form-group">
+            <label for="professor-senha">Senha:</label>
+            <input type="password" id="professor-senha" required />
+          </div>
+          <div class="form-group">
+            <label for="professor-especialidade">Especialidade:</label>
+            <input type="text" id="professor-especialidade" required />
+          </div>
+          <div class="form-group">
+            <label for="professor-registro">Registro:</label>
+            <input type="text" id="professor-registro" required />
+          </div>
+          <div class="form-actions">
+            <button
+              type="button"
+              class="btn-secondary"
+              onclick="closeModal('professor')"
+            >
+              Cancelar
+            </button>
+            <button type="submit" class="btn-primary">Salvar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Modal Curso -->
+    <div id="modal-curso" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Cadastrar Curso</h3>
+          <span class="close" onclick="closeModal('curso')">&times;</span>
+        </div>
+        <form id="form-curso" class="modal-form">
+          <div class="form-group">
+            <label for="curso-nome">Nome:</label>
+            <input type="text" id="curso-nome" required />
+          </div>
+          <div class="form-group">
+            <label for="curso-codigo">Código:</label>
+            <input type="text" id="curso-codigo" required />
+          </div>
+          <div class="form-group">
+            <label for="curso-carga-horaria">Carga Horária:</label>
+            <input type="number" id="curso-carga-horaria" required />
+          </div>
+          <div class="form-group">
+            <label>Tipo:</label>
+            <div>
+              <input
+                type="radio"
+                id="curso-presencial"
+                name="curso-tipo"
+                value="presencial"
+                checked
+              />
+              <label for="curso-presencial">Presencial</label>
+
+              <input
+                type="radio"
+                id="curso-ead"
+                name="curso-tipo"
+                value="ead"
+              />
+              <label for="curso-ead">EAD</label>
+            </div>
+          </div>
+          <div class="form-group" id="curso-sala-group">
+            <label for="curso-sala">Sala:</label>
+            <input type="text" id="curso-sala" />
+          </div>
+          <div
+            class="form-group"
+            id="curso-plataforma-group"
+            style="display: none"
+          >
+            <label for="curso-plataforma">Plataforma:</label>
+            <input type="text" id="curso-plataforma" />
+          </div>
+          <div class="form-actions">
+            <button
+              type="button"
+              class="btn-secondary"
+              onclick="closeModal('curso')"
+            >
+              Cancelar
+            </button>
+            <button type="submit" class="btn-primary">Salvar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Modal Turma -->
+    <div id="modal-turma" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Criar Turma</h3>
+          <span class="close" onclick="closeModal('turma')">&times;</span>
+        </div>
+        <form id="form-turma" class="modal-form">
+          <div class="form-group">
+            <label for="turma-codigo">Código da Turma:</label>
+            <input type="text" id="turma-codigo" required />
+          </div>
+          <div class="form-group">
+            <label for="turma-professor">Professor:</label>
+            <select id="turma-professor" required>
+              <option value="">Selecione um professor</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="turma-curso">Curso:</label>
+            <select id="turma-curso" required>
+              <option value="">Selecione um curso</option>
+            </select>
+          </div>
+          <div class="form-actions">
+            <button
+              type="button"
+              class="btn-secondary"
+              onclick="closeModal('turma')"
+            >
+              Cancelar
+            </button>
+            <button type="submit" class="btn-primary">Criar Turma</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Modal Alocar Aluno -->
+    <div id="modal-alocar-aluno" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Alocar Aluno em Turma</h3>
+                <span class="close" onclick="closeModal('alocar-aluno')">&times;</span>
+            </div>
+            <form id="form-alocar-aluno" class="modal-form">
+                <input type="hidden" id="alocar-aluno-id">
+                <div class="form-group">
+                    <label for="alocar-aluno-turma">Turma:</label>
+                    <select id="alocar-aluno-turma" required>
+                        <option value="">Selecione uma turma</option>
+                    </select>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary" onclick="closeModal('alocar-aluno')">Cancelar</button>
+                    <button type="button" class="btn-primary" onclick="Interface.confirmarAlocacaoAluno()">Salvar Alocação</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Alocar Professor -->
+    <div id="modal-alocar-professor" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Alocar Professor em Turma</h3>
+                <span class="close" onclick="closeModal('alocar-professor')">&times;</span>
+            </div>
+            <form id="form-alocar-professor" class="modal-form">
+                <input type="hidden" id="alocar-professor-id">
+                <div class="form-group">
+                    <label for="alocar-professor-turma">Turma:</label>
+                    <select id="alocar-professor-turma" required>
+                        <option value="">Selecione uma turma</option>
+                    </select>
+                </div>
+                <!-- Warning about replacement -->
+                <div class="form-group" style="background: #fff3cd; padding: 10px; border-radius: 4px; font-size: 0.9em;">
+                    <i class="fas fa-exclamation-triangle" style="color: #856404;"></i>
+                    Ao alocar, este professor substituirá o professor atual da turma selecionada.
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary" onclick="closeModal('alocar-professor')">Cancelar</button>
+                    <button type="button" class="btn-primary" onclick="Interface.confirmarAlocacaoProfessor()">Salvar Alocação</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Toast -->
+    <div id="toast" class="toast"></div>
+
+    <script src="js/app.js"></script>
+  </body>
+</html>
